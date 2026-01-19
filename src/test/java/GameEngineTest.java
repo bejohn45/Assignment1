@@ -67,7 +67,6 @@ public class GameEngineTest {
     }
 
     @Test
-<<<<<<< HEAD
     public void testQuitWithNegativeNumber() {
         engine.setTarget(50);
         GuessResult result = engine.makeGuess(-1);
@@ -80,7 +79,7 @@ public class GameEngineTest {
     public void testQuitDoesNotIncrementAttempts() {
         engine.setTarget(50);
         engine.makeGuess(-1);
-        assertEquals(0, engine.getAttempts());
+        assertEquals(0, engine.getAttempts());}
     public void testHintVeryClose() {
         engine.setTarget(50);
         engine.makeGuess(60);
@@ -148,7 +147,7 @@ public class GameEngineTest {
         }
         GuessResult result = engine.makeGuess(55);
         assertFalse(result.getHint().isEmpty());
-=======
+    }
     public void testMaxAttemptsReached() {
         engine.setTarget(50);
         for (int i = 0; i < 10; i++) {
@@ -200,6 +199,5 @@ public class GameEngineTest {
         }
         engine.reset();
         assertFalse(engine.isGameOver());
->>>>>>> e367776 (Implement max attempts logic and game over condition)
     }
 }

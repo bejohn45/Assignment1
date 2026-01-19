@@ -33,7 +33,11 @@ public class GameEngine {
         if (guess == target) {
             gameWon = true;
             return new GuessResult(true, "Correct! You guessed it in " + attempts + " attempts.", attempts);
+        } else if (attempts >= MAX_ATTEMPTS) {
+            gameOver = true;
+            return new GuessResult(false, "Game Over! You've used all " + MAX_ATTEMPTS + " attempts. The number was " + target + ".", attempts);
         } else {
+            int remaining = MAX_ATTEMPTS - attempts;
             String hint = getHint(guess);
             GuessResult result;
             if (guess < target) {
@@ -41,20 +45,8 @@ public class GameEngine {
             } else {
                 result = new GuessResult(false, "Too high!", attempts);
             }
-            result.setHint(hint);
-            return result;
-        } else if (attempts >= MAX_ATTEMPTS) {
-            gameOver = true;
-            return new GuessResult(false, "Game Over! You've used all " + MAX_ATTEMPTS + " attempts. The number was " + target + ".", attempts);
-        } else {
-            int remaining = MAX_ATTEMPTS - attempts;
-            GuessResult result;
-            if (guess < target) {
-                result = new GuessResult(false, "Too low!", attempts);
-            } else {
-                result = new GuessResult(false, "Too high!", attempts);
-            }
             result.setRemainingAttempts(remaining);
+            result.setHint(hint);
             return result;
         }
     }
@@ -73,6 +65,7 @@ public class GameEngine {
 
     public boolean hasUserQuit() {
         return userQuit;
+    }
     public boolean isGameOver() {
         return gameOver;
     }
