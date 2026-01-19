@@ -6,11 +6,8 @@ public class GameEngine {
     private int target;
     private int attempts;
     private boolean gameWon;
-<<<<<<< HEAD
     private boolean userQuit;
-=======
     private boolean hintsEnabled;
->>>>>>> 293c873 (Add hint system)
     private boolean gameOver;
 
     public GameEngine(int min, int max) {
@@ -18,11 +15,8 @@ public class GameEngine {
         this.max = max;
         this.attempts = 0;
         this.gameWon = false;
-<<<<<<< HEAD
         this.userQuit = false;
-=======
         this.hintsEnabled = true;
->>>>>>> 293c873 (Add hint system)
         this.gameOver = false;
         reset();
     }
